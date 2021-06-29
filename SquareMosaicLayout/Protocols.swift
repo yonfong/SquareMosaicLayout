@@ -38,6 +38,8 @@ public protocol SquareMosaicDataSource: class {
     func layoutSupplementaryBackerRequired(for section: Int) -> Bool
     func layoutSupplementaryFooter(for section: Int) -> SquareMosaicSupplementary?
     func layoutSupplementaryHeader(for section: Int) -> SquareMosaicSupplementary?
+    
+    func layoutSupplementaryBackerEdgeInsets(for section: Int) -> UIEdgeInsets
 }
 
 public extension SquareMosaicDataSource {
@@ -56,6 +58,10 @@ public extension SquareMosaicDataSource {
     
     func layoutSupplementaryHeader(for section: Int) -> SquareMosaicSupplementary? {
         return nil
+    }
+    
+    func layoutSupplementaryBackerEdgeInsets(for section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
     }
 }
 

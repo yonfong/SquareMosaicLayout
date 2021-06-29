@@ -195,19 +195,22 @@ private func getAttributesSupplementary(_ kind: SupplementaryKind, _ dataSource:
         guard side > 0 else {
             return nil
         }
+        
+        let edgeInsets = dataSource.layoutSupplementaryBackerEdgeInsets(for: section)
+        
         let indexPath = IndexPath(item: 0, section: section)
         let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: kind.value, with: indexPath)
         attributes.zIndex = -1
         switch direction {
         case .vertical:
             attributes.frame = CGRect(
-                origin: CGPoint(x: 0.0, y: sectionOrigin),
-                size: CGSize(width: size.width, height: side)
+                origin: CGPoint(x: 0.0 + edgeInsets.left, y: sectionOrigin + edgeInsets.top),
+                size: CGSize(width: size.width - edgeInsets.left - edgeInsets.right, height: side - edgeInsets.top - edgeInsets.bottom)
             )
         case .horizontal:
             attributes.frame = CGRect(
-                origin: CGPoint(x: sectionOrigin, y: 0.0),
-                size: CGSize(width: side, height: size.height)
+                origin: CGPoint(x: sectionOrigin + edgeInsets.left, y: 0.0 + edgeInsets.top),
+                size: CGSize(width: side - edgeInsets.left - edgeInsets.right , height: size.height - edgeInsets.top - edgeInsets.bottom)
             )
         }
         return (attributes, nil)

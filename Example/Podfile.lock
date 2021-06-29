@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SquareMosaicLayout: 8cb7bb6bc2a55bec86e5f1b413e58ae29b37ad4e
+  SquareMosaicLayout: 3275ad9168cdffc92e405d2af59c89b44f219530
 
 PODFILE CHECKSUM: 8cbdcd7f0d1152e507153da938d532254d3efbb5
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.10.1

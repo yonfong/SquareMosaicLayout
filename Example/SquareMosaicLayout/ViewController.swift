@@ -24,7 +24,7 @@ fileprivate extension ViewController {
     func getViewCollection() -> UICollectionView {
         let view = UICollectionView(frame: self.view.bounds, collectionViewLayout: self.viewLayout)
         view.backgroundColor = UIColor.groupTableViewBackground
-        view.contentInset = UIEdgeInsets(top: 10.0, left: 50.0, bottom: 10.0, right: 50.0)
+//        view.contentInset = UIEdgeInsets(top: 10.0, left: 50.0, bottom: 10.0, right: 50.0)
         view.register(CellView.self)
         view.register(SupplementaryView.self, identifier: SquareMosaicLayoutSectionFooter, kind: SquareMosaicLayoutSectionFooter)
         view.register(SupplementaryView.self, identifier: SquareMosaicLayoutSectionHeader, kind: SquareMosaicLayoutSectionHeader)
@@ -87,6 +87,10 @@ final class Layout: SquareMosaicLayout, SquareMosaicDataSource {
     
     func layoutSupplementaryHeader(for section: Int) -> SquareMosaicSupplementary? {
         return VerticalSupplementary()
+    }
+    
+    func layoutSupplementaryBackerEdgeInsets(for section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 15, bottom: 0, right: 0)
     }
 }
 
